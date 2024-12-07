@@ -6,12 +6,12 @@ mat-toolbar {
   
   .sidenav-container {
     height: 100vh;
-    background-color: #d1b5f1; /* Light grey for sidenav content */
+    background-color: #d1b5f1; 
   }
   
   mat-sidenav {
     width: 250px;
-    background-color: #f2e0fb; /* Dark grey background for sidenav */
+    background-color: #f2e0fb; 
     color: rgb(189, 201, 231);
   }
   

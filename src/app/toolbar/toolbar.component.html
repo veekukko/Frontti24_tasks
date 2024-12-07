@@ -1,54 +1,75 @@
-
 <mat-toolbar color="primary">
-    <button mat-icon-button (click)="sidenav.toggle()">
-      <mat-icon>menu</mat-icon>
+  <!-- Bicmac menu -->
+  <button mat-icon-button (click)="sidenav.toggle()">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <span>App Navigation</span>
+
+  <!-- Spacer to align navigation items -->
+  <span class="spacer"></span>
+
+  <!-- Dynaamiset buttonit -->
+  <div *ngIf="userEmail$ | async as userEmail; else loginTemplate" class="toolbar-actions">
+    <span class="user-email">{{ userEmail }}</span>
+    <button mat-button (click)="logout()">
+      <mat-icon>logout</mat-icon>
+      LOG OUT
     </button>
-    <span>App Navigation</span>
-    <span class="spacer"></span>
-    <a mat-button routerLink="/">
-      <mat-icon>home</mat-icon>
-      Home
-    </a>
-  </mat-toolbar>
-  
-  <mat-sidenav-container class="sidenav-container">
-    <mat-sidenav #sidenav mode="side" [opened]="false">
-      <mat-nav-list>
-        <nav>
-          <a routerLink="/admin/login" (click)="sidenav.close()">SIGN IN</a>
-        </nav>
-        <a  mat-list-item routerLink="/hello" (click)="sidenav.close()">
-            <mat-icon>emoji_people</mat-icon>
-            <span>Hello Dave</span>
-        </a>
-        <mat-divider></mat-divider>
-        <a mat-list-item routerLink="/feedback" (click)="sidenav.close()">
-            <mat-icon>feedback </mat-icon>
-            Feedback  
-        </a>
-        <mat-divider></mat-divider>
-        <a mat-list-item routerLink="/calculator" (click)="sidenav.close()">
-            <mat-icon>calculate</mat-icon>                                                         
-            <span>Calculator</span>
-        </a>
-        <a mat-list.item routerLink="/form" (click)="sidenav.close()">
-            <mat-icon>emoji_people</mat-icon>
-            Person form
-        </a>
-        <a mat-list.item routerLink="/reactive" (click)="sidenav.close()">
-          <mat-icon>emoji_people</mat-icon>
-          reactiveForm
+  </div>
+  <ng-template #loginTemplate>
+    <button mat-button routerLink="/admin/login">
+      <mat-icon>login</mat-icon>
+      SIGN IN
+    </button>
+  </ng-template>
+</mat-toolbar>
+
+<!-- Sidenav -->
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #sidenav mode="side" [opened]="false">
+    <mat-nav-list>
+      <!-- Navigation Links -->
+      <a mat-list-item routerLink="/" (click)="sidenav.close()">
+        <mat-icon>home</mat-icon>
+        <span>Home</span>
       </a>
-      <a mat-list.item routerLink="/movies" (click)="sidenav.close()">
-        <mat-icon>movies</mat-icon>
-        Finnkino movies
-    </a>
-        <mat-divider></mat-divider>
-      </mat-nav-list>
-    </mat-sidenav>
-  
-    <mat-sidenav-content>
-      <router-outlet></router-outlet>
-    </mat-sidenav-content>
-  </mat-sidenav-container>
-  
+      <mat-divider></mat-divider>
+      
+      <a mat-list-item routerLink="/admin/login" *ngIf="!(userEmail$ | async)" (click)="sidenav.close()">
+        <mat-icon>login</mat-icon>
+        <span>SIGN IN</span>
+      </a>
+      <a mat-list-item routerLink="/admin/main" *ngIf="userEmail$ | async" (click)="sidenav.close()">
+        <mat-icon>admin_panel_settings</mat-icon>
+        <span>Admin Panel</span>
+      </a>
+      <mat-divider></mat-divider>
+
+      <a mat-list-item routerLink="/feedback" (click)="sidenav.close()">
+        <mat-icon>feedback</mat-icon>
+        <span>Feedback</span>
+      </a>
+      <a mat-list-item routerLink="/calculator" (click)="sidenav.close()">
+        <mat-icon>calculate</mat-icon>
+        <span>Calculator</span>
+      </a>
+      <a mat-list-item routerLink="/form" (click)="sidenav.close()">
+        <mat-icon>assignment</mat-icon>
+        <span>Template Form</span>
+      </a>
+      <a mat-list-item routerLink="/reactive" (click)="sidenav.close()">
+        <mat-icon>dynamic_form</mat-icon>
+        <span>Reactive Form</span>
+      </a>
+      <a mat-list-item routerLink="/movies" (click)="sidenav.close()">
+        <mat-icon>movie</mat-icon>
+        <span>Movies</span>
+      </a>
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <!-- Main Content -->
+  <mat-sidenav-content>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>
