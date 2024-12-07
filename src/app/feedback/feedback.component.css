@@ -1,0 +1,35 @@
+/* feedback.component.css */
+.feedback-container {
+    display: flex;
+    justify-content: center;
+    padding: 1rem;
+  }
+  
+  mat-card {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 1rem;
+  }
+  
+  .question-section {
+    margin-bottom: 1.5rem;
+    color: #000000;
+  }
+  
+  .feedback-text {
+    font-size: 0.9rem;
+    color: #000000;
+    margin-top: 0.5rem;
+  }
+  .feedback-title {
+    font-size: 24px; /* Adjust the size as needed */
+    color: black; /* Set the text color to black */
+    font-weight: bold; /* Optional: make the text bold */
+    
+  }
+  
+  /* Other styles (if any) */
+  .feedback-container {
+    margin: 20px; /* Optional: add margin around the container */
+  }

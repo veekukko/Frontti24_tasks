@@ -1,0 +1,19 @@
+<div class="calculator-container">
+    <h2>Simple Calculator</h2>
+    <mat-card>
+      <mat-card-content>
+        <h3>{{ display }}</h3>
+      </mat-card-content>
+  
+      <mat-grid-list cols="4" rowHeight="100px">
+        <mat-grid-tile *ngFor="let button of buttons">
+          <button mat-raised-button 
+                  color="accent" 
+                  (click)="onButtonClick(button)">
+            {{ button }}
+          </button>
+        </mat-grid-tile>
+      </mat-grid-list>
+    </mat-card>
+  </div>
+  

@@ -1,0 +1,54 @@
+
+<mat-toolbar color="primary">
+    <button mat-icon-button (click)="sidenav.toggle()">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <span>App Navigation</span>
+    <span class="spacer"></span>
+    <a mat-button routerLink="/">
+      <mat-icon>home</mat-icon>
+      Home
+    </a>
+  </mat-toolbar>
+  
+  <mat-sidenav-container class="sidenav-container">
+    <mat-sidenav #sidenav mode="side" [opened]="false">
+      <mat-nav-list>
+        <nav>
+          <a routerLink="/admin/login" (click)="sidenav.close()">SIGN IN</a>
+        </nav>
+        <a  mat-list-item routerLink="/hello" (click)="sidenav.close()">
+            <mat-icon>emoji_people</mat-icon>
+            <span>Hello Dave</span>
+        </a>
+        <mat-divider></mat-divider>
+        <a mat-list-item routerLink="/feedback" (click)="sidenav.close()">
+            <mat-icon>feedback </mat-icon>
+            Feedback  
+        </a>
+        <mat-divider></mat-divider>
+        <a mat-list-item routerLink="/calculator" (click)="sidenav.close()">
+            <mat-icon>calculate</mat-icon>                                                         
+            <span>Calculator</span>
+        </a>
+        <a mat-list.item routerLink="/form" (click)="sidenav.close()">
+            <mat-icon>emoji_people</mat-icon>
+            Person form
+        </a>
+        <a mat-list.item routerLink="/reactive" (click)="sidenav.close()">
+          <mat-icon>emoji_people</mat-icon>
+          reactiveForm
+      </a>
+      <a mat-list.item routerLink="/movies" (click)="sidenav.close()">
+        <mat-icon>movies</mat-icon>
+        Finnkino movies
+    </a>
+        <mat-divider></mat-divider>
+      </mat-nav-list>
+    </mat-sidenav>
+  
+    <mat-sidenav-content>
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+  

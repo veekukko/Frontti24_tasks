@@ -1,0 +1,35 @@
+/* Dark theme for the toolbar */
+mat-toolbar {
+    background-color: #b1addc;
+    color: white;
+  }
+  
+  .sidenav-container {
+    height: 100vh;
+    background-color: #d1b5f1; /* Light grey for sidenav content */
+  }
+  
+  mat-sidenav {
+    width: 250px;
+    background-color: #f2e0fb; /* Dark grey background for sidenav */
+    color: rgb(189, 201, 231);
+  }
+  
+  mat-nav-list a {
+    padding: 12px 16px;
+    font-size: 16px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    transition: background-color 0.3s;
+  }
+  
+  mat-nav-list a:hover {
+    background-color: rgba(94, 170, 206, 0.1);
+  }
+  
+  
+  .spacer {
+    flex: 1 1 auto;
+  }
+  

@@ -1,0 +1,68 @@
+/// styles.scss
+@import 'styles/themes.scss';
+
+// Define colors (if not already defined)
+$primary-color: #2E7D32;
+$accent-color: #81C784;
+$text-color: #FFFFFF;
+$background-color: #1B5E20;
+
+// Global styling
+body {
+  background-color: $background-color;
+  color: $text-color;
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+// Spacer class for toolbar alignment
+.spacer {
+  flex: 1 1 auto;
+}
+
+// Enhanced toolbar styling
+.mat-toolbar {
+  background-color: $primary-color;
+  color: $text-color;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+
+  a {
+    color: $text-color;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+
+    &:hover {
+      color: $accent-color;
+    }
+  }
+}
+// BicMAc   
+
+
+// Button styling with animations
+.mat-button {
+  background-color: $accent-color;
+  color: $text-color;
+  margin: 5px;
+  font-weight: bold;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+
+  &:hover {
+    background-color: darken($accent-color, 10%);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  }
+}
+
+// Content container styling
+.content {
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  margin: 20px auto;
+  width: 90%;
+  max-width: 800px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}

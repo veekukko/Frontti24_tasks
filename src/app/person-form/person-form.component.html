@@ -1,0 +1,69 @@
+<!-- person-form.component.html -->
+<form #personForm="ngForm" (ngSubmit)="submitForm(personForm)" novalidate>
+    <mat-form-field>
+      <mat-label>First Name</mat-label>
+      <input matInput name="firstName" [(ngModel)]="person.firstName" required minlength="2" pattern="[A-Za-z]*">
+      <mat-error *ngIf="personForm.controls['firstName']?.invalid && (personForm.controls['firstName']?.touched || personForm.submitted)">
+
+        First Name must be at least 2 characters and contain only letters.
+      </mat-error>
+    </mat-form-field>
+  
+    <mat-form-field>
+      <mat-label>Last Name</mat-label>
+      <input matInput name="lastName" [(ngModel)]="person.lastName" required minlength="2" pattern="[A-Za-z]*">
+      <mat-error *ngIf="personForm.controls['lastName']?.invalid && (personForm.controls['lastName']?.touched || personForm.submitted)">
+        Last Name must be at least 2 characters and contain only letters.
+      </mat-error>
+    </mat-form-field>
+  
+    <mat-form-field>
+      <mat-label>Email</mat-label>
+      <input matInput type="email" name="email" [(ngModel)]="person.email" required email>
+      <mat-error *ngIf="personForm.controls['email']?.invalid && (personForm.controls['email']?.touched || personForm.submitted)">
+        Please enter a valid email address.
+      </mat-error>
+    </mat-form-field>
+  
+    <mat-form-field>
+      <mat-label>Username</mat-label>
+      <input matInput type="username" name="username" [(ngModel)]="person.username" required minlength="6">
+      <mat-error *ngIf="personForm.controls['username']?.invalid && (personForm.controls['username']?.touched || personForm.submitted)">
+        Username must be at least 6 characters long.
+      </mat-error>
+    </mat-form-field>
+  
+    <mat-form-field>
+      <mat-label>Password</mat-label>
+      <input matInput type="password" name="password" [(ngModel)]="person.password" required minlength="10" pattern="(?=.*[0-9])(?=.*[A-Z]).*">
+      <mat-error *ngIf="personForm.controls['password']?.invalid && (personForm.controls['password']?.touched || personForm.submitted)">
+        Password must be at least 10 characters long, containing numbers and uppercase letters.
+      </mat-error>
+    </mat-form-field>
+  
+    <mat-form-field>
+      <mat-label>Confirm Password</mat-label>
+      <input matInput type="password" name="confirmPassword" [(ngModel)]="person.confirmPassword" required>
+      <mat-error *ngIf="personForm.controls['confirmPassword']?.invalid && (personForm.controls['confirmPassword']?.touched || personForm.submitted)">
+        Passwords must match.
+      </mat-error>
+    </mat-form-field>
+  
+    <mat-form-field>
+      <mat-label>Social Security Number</mat-label>
+      <input matInput name="socialSecurityNumber" [(ngModel)]="person.socialSecurityNumber" required pattern="^[0-9]{6}-[0-9]{4}$">
+      <mat-error *ngIf="personForm.controls['socialSecurityNumber']?.invalid && (personForm.controls['socialSecurityNumber']?.touched || personForm.submitted)">
+        Invalid social security number format (XXXXXX-XXXX).
+      </mat-error>
+    </mat-form-field>
+  
+    <mat-checkbox name="acceptedTerms" [(ngModel)]="person.acceptedTerms" required>
+      I accept the terms and conditions
+    </mat-checkbox>
+    <mat-error *ngIf="!person.acceptedTerms && personForm.submitted">
+      You must accept the terms and conditions.
+    </mat-error>
+  
+    <button mat-raised-button color="primary" type="submit">Submit</button>
+  </form>
+  

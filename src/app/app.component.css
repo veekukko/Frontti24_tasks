@@ -1,0 +1,23 @@
+.spacer {
+    flex: 1 1 auto;
+  }
+  
+
+  mat-toolbar {
+    display: flex; /* Flexbox layout for toolbar */
+    align-items: center;
+    
+   
+  }
+  
+  a, button {
+    color:black;
+    text-decoration: none;
+    font-weight: 500;
+  }
+  
+  a:hover, button:hover {
+    color: #81C784; /* Accent color on hover */
+  }
+
+  

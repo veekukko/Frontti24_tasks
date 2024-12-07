@@ -1,0 +1,131 @@
+<div class="form-container">
+    <h2>Profile Editor</h2>
+    <form [formGroup]="reactiveForm" (ngSubmit)="submitForm()">
+      
+      <!-- First Name -->
+      <div class="form-group">
+        <label for="firstName">First Name</label>
+        <input 
+          id="firstName" 
+          type="text" 
+          class="form-control" 
+          formControlName="firstName" 
+          placeholder="Enter your first name">
+        <div *ngIf="reactiveForm.get('firstName')?.invalid && reactiveForm.get('firstName')?.touched" class="error">
+          <small *ngIf="reactiveForm.get('firstName')?.hasError('required')">First name is required.</small>
+          <small *ngIf="reactiveForm.get('firstName')?.hasError('minlength')">First name must be at least 2 characters long.</small>
+          <small *ngIf="reactiveForm.get('firstName')?.hasError('pattern')">First name can only contain letters.</small>
+        </div>
+      </div>
+  
+      <!-- Last Name -->
+      <div class="form-group">
+        <label for="lastName">Last Name</label>
+        <input 
+          id="lastName" 
+          type="text" 
+          class="form-control" 
+          formControlName="lastName" 
+          placeholder="Enter your last name">
+        <div *ngIf="reactiveForm.get('lastName')?.invalid && reactiveForm.get('lastName')?.touched" class="error">
+          <small *ngIf="reactiveForm.get('lastName')?.hasError('required')">Last name is required.</small>
+          <small *ngIf="reactiveForm.get('lastName')?.hasError('minlength')">Last name must be at least 2 characters long.</small>
+          <small *ngIf="reactiveForm.get('lastName')?.hasError('pattern')">Last name can only contain letters.</small>
+        </div>
+      </div>
+  
+      <!-- Username -->
+      <div class="form-group">
+        <label for="username">Username</label>
+        <input 
+          id="username" 
+          type="text" 
+          class="form-control" 
+          formControlName="username" 
+          placeholder="Enter your username">
+        <div *ngIf="reactiveForm.get('username')?.invalid && reactiveForm.get('username')?.touched" class="error">
+          <small *ngIf="reactiveForm.get('username')?.hasError('required')">Username is required.</small>
+          <small *ngIf="reactiveForm.get('username')?.hasError('minlength')">Username must be at least 6 characters long.</small>
+        </div>
+      </div>
+  
+      <!-- Email -->
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input 
+          id="email" 
+          type="email" 
+          class="form-control" 
+          formControlName="email" 
+          placeholder="Enter your email">
+        <div *ngIf="reactiveForm.get('email')?.invalid && reactiveForm.get('email')?.touched" class="error">
+          <small *ngIf="reactiveForm.get('email')?.hasError('required')">Email is required.</small>
+          <small *ngIf="reactiveForm.get('email')?.hasError('email')">Please enter a valid email address.</small>
+        </div>
+      </div>
+  
+      <!-- Password -->
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input 
+          id="password" 
+          type="password" 
+          class="form-control" 
+          formControlName="password" 
+          placeholder="Enter your password">
+        <div *ngIf="reactiveForm.get('password')?.invalid && reactiveForm.get('password')?.touched" class="error">
+          <small *ngIf="reactiveForm.get('password')?.hasError('required')">Password is required.</small>
+          <small *ngIf="reactiveForm.get('password')?.hasError('minlength')">Password must be at least 10 characters long.</small>
+          <small *ngIf="reactiveForm.get('password')?.hasError('pattern')">Password must contain at least one uppercase letter and one number.</small>
+        </div>
+      </div>
+  
+      <!-- Confirm Password -->
+      <div class="form-group">
+        <label for="confirmPassword">Confirm Password</label>
+        <input 
+          id="confirmPassword" 
+          type="password" 
+          class="form-control" 
+          formControlName="confirmPassword" 
+          placeholder="Confirm your password">
+        <div *ngIf="reactiveForm.get('confirmPassword')?.invalid && reactiveForm.get('confirmPassword')?.touched" class="error">
+          <small *ngIf="reactiveForm.get('confirmPassword')?.hasError('required')">Confirm password is required.</small>
+          <small *ngIf="reactiveForm.hasError('passwordsNotMatching') && reactiveForm.get('confirmPassword')?.touched">
+            Passwords do not match.
+          </small>
+        </div>
+      </div>
+  
+      <!-- Social Security Number -->
+      <div class="form-group">
+        <label for="socialSecurityNumber">Social Security Number</label>
+        <input 
+          id="socialSecurityNumber" 
+          type="text" 
+          class="form-control" 
+          formControlName="socialSecurityNumber" 
+          placeholder="Enter your SSN">
+        <div *ngIf="reactiveForm.get('socialSecurityNumber')?.invalid && reactiveForm.get('socialSecurityNumber')?.touched" class="error">
+          <small *ngIf="reactiveForm.get('socialSecurityNumber')?.hasError('required')">SSN is required.</small>
+          <small *ngIf="reactiveForm.get('socialSecurityNumber')?.hasError('pattern')">Please enter a valid SSN (e.g., 123456-7890).</small>
+        </div>
+      </div>
+  
+      <!-- Terms of Service -->
+      <div class="form-group">
+        <label>
+          <input type="checkbox" formControlName="acceptedTerms"> I accept the terms and conditions
+        </label>
+        <div *ngIf="reactiveForm.get('acceptedTerms')?.invalid && reactiveForm.get('acceptedTerms')?.touched" class="error">
+          <small>You must accept the terms and conditions.</small>
+        </div>
+      </div>
+  
+      <!-- Submit Button -->
+      <div class="form-group">
+        <button type="submit" [disabled]="reactiveForm.invalid" class="btn btn-primary">Submit</button>
+      </div>
+    </form>
+  </div>
+  

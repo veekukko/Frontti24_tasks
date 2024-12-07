@@ -1,0 +1,26 @@
+<!-- feedback.component.html -->
+<div class="feedback-container">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title class="feedback-title">Your Feedback </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div *ngFor="let question of questions" class="question-section">
+        <p>{{ question.questionText }}</p>
+        <mat-slider min="1" max="10" step="1" 
+        thumbLabel 
+
+        [value]="question.feedback"
+        (input)="onSliderChange(question, $event)">
+
+          <input matSliderThumb /> <!-- Single thumb for each slider -->
+        </mat-slider>
+        <p class="feedback-text">Feedback: {{ question.feedback }}</p>
+        <mat-divider></mat-divider>
+      </div>
+      <div>
+        <button mat-raised-button color="primary" (click)="onSubmit()">Save Feedback</button>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>
