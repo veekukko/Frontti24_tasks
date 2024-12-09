@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./calculator.component.css']
 })
 export class CalculatorComponent {
-  display: string = ''; // To show the current input or result
+  display: string = ''; // Shos the current input or result
   buttons: string[] = ['7', '8', '9', '/', '4', '5', '6', '*', '1', '2', '3', '-', 'C', '0', '=', '+'];
 
   onButtonClick(value: string): void {
@@ -17,7 +17,7 @@ export class CalculatorComponent {
       try {
         this.display = eval(this.display);
       } catch (e) {
-        this.display = 'Error'; // Handle invalid expressions
+        this.display = 'Error'; 
       }
     } else {
       // Avoid entering two operators in a row

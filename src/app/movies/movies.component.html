@@ -1,5 +1,4 @@
 <div class="content-container">
-  <!-- Search Bar -->
   <div class="search-bar">
     <input
       type="text"
@@ -8,7 +7,7 @@
     />
   </div>
 
-  <!-- Unified News and Movies Section -->
+  <!-- News-->
   <section class="content-section">
     <div class="content-list">
       <div class="content-item" *ngFor="let item of combinedData | newsFilter: searchText">
@@ -20,7 +19,7 @@
         </div>
 
         <div class="content-body">
-          <!-- Conditionally Show Summary or Full Body -->
+          <!-- summary or full body -->
           <p *ngIf="!item.showMoreInfo">{{ item.Body | slice: 0:100 }}...</p>
           <p *ngIf="item.showMoreInfo">{{ item.Body }}</p>       
           <button class="btn-toggle" (click)="toggleMoreInfo(item)">

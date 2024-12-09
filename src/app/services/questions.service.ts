@@ -10,8 +10,7 @@ export class QuestionsService {
     new Question('Onko Jone "Cuck" Nikula ÄIJÄ?'),
     new Question('How Meganen is Dave'),
   ];
-
-  // This method now returns the questions array
+// returns Questions array
   getQuestions(): Question[] {
     return [...this.questions];
   }

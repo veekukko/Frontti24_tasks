@@ -58,7 +58,7 @@ export class ReactiveFormComponent implements OnInit {
 
   submitForm() {
     if (this.reactiveForm.valid) {
-      console.log('FJeejee toimii', this.reactiveForm.value);
+      console.log('Jeejee toimii', this.reactiveForm.value);
       this.reactiveForm.reset(); // Reset form after submission
     } else {
       console.log('Form is invalid');

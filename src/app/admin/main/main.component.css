@@ -18,7 +18,6 @@ body, html {
     overflow: hidden;
   }
   
-  /* Futuristic glowing background */
   .admin-container::before {
     content: '';
     position: absolute;

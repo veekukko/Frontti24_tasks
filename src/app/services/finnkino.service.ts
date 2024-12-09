@@ -12,7 +12,7 @@ export class FinnkinoService {
 
   constructor(private http: HttpClient) {}
 
-  // Fetch XML data from Finnkino
+  // XML data from Finnkino
   fetchData(endpoint: string): Observable<any> {
     const url = `${this.apiBaseUrl}${endpoint}`;
     return this.http.get(url, { responseType: 'text' }).pipe(
@@ -20,7 +20,7 @@ export class FinnkinoService {
     );
   }
 
-  // Convert XML to JSON
+  // XML to JSON
   private convertXmlToJson(xml: string): any {
     let jsonResult: any;
     xml2js.parseString(xml, { explicitArray: false }, (err, result) => {

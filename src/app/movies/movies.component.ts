@@ -7,7 +7,7 @@ import { FinnkinoService } from '../services/finnkino.service';
   styleUrls: ['./movies.component.css'],
 })
 export class MoviesComponent implements OnInit {
-  combinedData: any[] = []; // Combined list of news and movies
+  combinedData: any[] = []; // List of news
   searchText: string = ''; // Used for the search filter
 
   constructor(private finnkinoService: FinnkinoService) {}

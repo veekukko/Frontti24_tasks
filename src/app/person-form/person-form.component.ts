@@ -1,7 +1,7 @@
 // src/app/person-form/person-form.component.ts
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { NgForm } from '@angular/forms'; // Import NgForm
+import { NgForm } from '@angular/forms';
 import { Person } from './person.model';
 
 
@@ -23,24 +23,21 @@ export class PersonFormComponent implements OnInit {
         verticalPosition: 'top',
       });
 
-      // Remove the flag after showing the message
       localStorage.removeItem('formSubmitted');
     }
   }
 
   submitForm(personForm: NgForm) {
     if (personForm.valid) {
-      // Store a flag in localStorage
       localStorage.setItem('formSubmitted', 'true');
 
-      // Display the snack bar message
+      // Snack bar message
       this.snackBar.open('Form submitted successfully!', 'Close', {
         duration: 3000,
         horizontalPosition: 'center',
         verticalPosition: 'top',
       });
 
-      // Reset form
       personForm.resetForm(); 
       this.person = new Person(); 
     }
