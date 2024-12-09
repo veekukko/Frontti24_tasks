@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-
+import { evaluate } from 'mathjs';
 @Component({
   selector: 'app-calculator',
   templateUrl: './calculator.component.html',
@@ -15,7 +15,7 @@ export class CalculatorComponent {
     } else if (value === '=') {
       
       try {
-        this.display = eval(this.display);
+        this.display = evaluate(this.display);
       } catch (e) {
         this.display = 'Error'; 
       }
